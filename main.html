@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paras Beniwal · Cyber Security Portfolio</title>
+  <!-- Google Fonts & Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ---------- GLOBAL RESET / CYBER THEME ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0b0e14;
+      color: #e2eaf0;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* terminal / glitch accent */
+    :root {
+      --cyber-green: #00ff9d;
+      --cyber-blue: #4d9eff;
+      --cyber-dark: #0d1117;
+      --cyber-card: #151c24;
+      --border-glow: rgba(0, 255, 157, 0.2);
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* ---------- TYPOGRAPHY & GLOW ---------- */
+    h1, h2, h3, h4 {
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      position: relative;
+      display: inline-block;
+    }
+    h2:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 70px;
+      height: 4px;
+      background: var(--cyber-green);
+      box-shadow: 0 0 10px var(--cyber-green);
+    }
+
+    .section {
+      padding: 90px 0;
+      border-bottom: 1px solid rgba(0, 255, 157, 0.1);
+    }
+
+    /* ---------- BUTTONS ---------- */
+    .btn {
+      display: inline-block;
+      padding: 12px 32px;
+      font-weight: 600;
+      border-radius: 40px;
+      transition: all 0.25s ease;
+      border: 1.5px solid var(--cyber-green);
+      background: transparent;
+      color: white;
+      letter-spacing: 0.5px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: var(--cyber-green);
+      color: #0b0e14;
+      border: none;
+      font-weight: 700;
+      box-shadow: 0 0 15px rgba(0, 255, 157, 0.3);
+    }
+    .btn-primary:hover {
+      background: #00c97e;
+      box-shadow: 0 0 25px var(--cyber-green);
+      transform: scale(1.02);
+    }
+    .btn-outline:hover {
+      background: rgba(0, 255, 157, 0.1);
+      border-color: #00c97e;
+    }
+
+    /* ---------- NAVIGATION (sticky, cyber) ---------- */
+    header {
+      background: rgba(11, 14, 20, 0.95);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-bottom: 1px solid #2a3740;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--cyber-green);
+      text-shadow: 0 0 8px rgba(0,255,157,0.6);
+      letter-spacing: -1px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      font-weight: 600;
+    }
+    .nav-links a {
+      color: #d1e0e8;
+      transition: 0.2s;
+      font-size: 1.05rem;
+      position: relative;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--cyber-green);
+    }
+    .nav-links a:after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: var(--cyber-green);
+      transition: 0.2s;
+    }
+    .nav-links a:hover:after {
+      width: 100%;
+    }
+
+    /* ---------- HERO SECTION ---------- */
+    .hero {
+      padding: 70px 0 50px;
+      border-bottom: none;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 50px;
+      align-items: center;
+    }
+    .hero-sub {
+      color: var(--cyber-green);
+      font-size: 1.3rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+    .hero-title {
+      font-size: 4.2rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      color: white;
+    }
+    .hero-title span {
+      color: var(--cyber-green);
+      text-decoration: underline;
+      text-decoration-color: var(--cyber-blue);
+      text-underline-offset: 12px;
+    }
+    .hero-desc {
+      font-size: 1.2rem;
+      color: #b0c8d9;
+      margin: 30px 0 35px;
+      max-width: 90%;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+    .hero-stats {
+      background: var(--cyber-card);
+      padding: 30px;
+      border-radius: 24px;
+      border: 1px solid rgba(0,255,157,0.2);
+      box-shadow: 0 15px 35px -10px black;
+    }
+
+    /* ---------- CARDS & SKILLS ---------- */
+    .card {
+      background: var(--cyber-card);
+      border-radius: 24px;
+      padding: 28px;
+      border: 1px solid #28343e;
+      transition: 0.2s;
+    }
+    .card:hover {
+      border-color: var(--cyber-green);
+      box-shadow: 0 8px 30px rgba(0,255,157,0.08);
+    }
+    .skill-tag {
+      display: inline-block;
+      background: rgba(77, 158, 255, 0.1);
+      border: 1px solid rgba(77, 158, 255, 0.3);
+      color: #cee9ff;
+      padding: 6px 18px;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin: 0 8px 12px 0;
+      transition: 0.1s;
+    }
+    .skill-tag:hover {
+      background: var(--cyber-green);
+      color: #0b0e14;
+      border-color: var(--cyber-green);
+    }
+    .skill-category {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin: 25px 0 15px;
+      color: #d6edff;
+    }
+    .skill-category i {
+      color: var(--cyber-green);
+      margin-right: 10px;
+    }
+
+    /* ---------- PROJECT CARDS ---------- */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 30px;
+      margin-top: 20px;
+    }
+    .project-card {
+      background: var(--cyber-card);
+      border-radius: 28px;
+      padding: 30px;
+      border: 1px solid #28343e;
+    }
+    .project-title {
+      font-size: 1.7rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .project-meta {
+      color: var(--cyber-green);
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 20px 0;
+    }
+    .tech-badge {
+      background: #1e2a32;
+      padding: 5px 16px;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #cce6ff;
+    }
+
+    /* ---------- RESUME / EDUCATION TIMELINE ---------- */
+    .resume-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 45px;
+    }
+    .edu-item {
+      margin-bottom: 30px;
+    }
+    .edu-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+    .edu-meta {
+      color: #8da3b3;
+      font-weight: 500;
+      margin: 6px 0 12px;
+    }
+    .percent {
+      color: var(--cyber-green);
+      font-weight: 700;
+    }
+    .linked-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #1e2a32;
+      padding: 10px 22px;
+      border-radius: 60px;
+      margin: 10px 0;
+    }
+
+    /* ---------- CONTACT SECTION (with working form) ---------- */
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+    }
+    .contact-info i {
+      color: var(--cyber-green);
+      width: 32px;
+      font-size: 1.3rem;
+      margin-right: 12px;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 25px;
+    }
+    .contact-form {
+      position: relative;
+    }
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 16px 22px;
+      background: #1a232b;
+      border: 1px solid #31424e;
+      border-radius: 40px;
+      margin-bottom: 20px;
+      color: white;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      transition: all 0.2s;
+    }
+    .contact-form input:focus, .contact-form textarea:focus {
+      outline: none;
+      border-color: var(--cyber-green);
+      box-shadow: 0 0 12px rgba(0,255,157,0.3);
+    }
+    .contact-form textarea {
+      border-radius: 28px;
+      resize: vertical;
+    }
+    /* thank you message overlay */
+    .thankyou-message {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(10, 20, 25, 0.98);
+      backdrop-filter: blur(6px);
+      border-radius: 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+      text-align: center;
+      border: 2px solid var(--cyber-green);
+      box-shadow: 0 0 40px rgba(0,255,157,0.2);
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.25s ease;
+      z-index: 20;
+    }
+    .thankyou-message.show {
+      opacity: 1;
+      visibility: visible;
+    }
+    .thankyou-message i {
+      font-size: 4rem;
+      color: var(--cyber-green);
+      margin-bottom: 25px;
+      text-shadow: 0 0 20px var(--cyber-green);
+    }
+    .thankyou-message h3 {
+      font-size: 2.2rem;
+      margin-bottom: 15px;
+      color: white;
+    }
+    .thankyou-message p {
+      color: #c0e0ff;
+      font-size: 1.2rem;
+      max-width: 80%;
+    }
+    .close-thankyou {
+      margin-top: 30px;
+      background: transparent;
+      border: 1.5px solid var(--cyber-green);
+      color: white;
+      padding: 10px 32px;
+      border-radius: 60px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .close-thankyou:hover {
+      background: var(--cyber-green);
+      color: #0b0e14;
+    }
+
+    /* ---------- CV MODAL / EXPANDED VIEW ---------- */
+    .cv-panel {
+      background: var(--cyber-card);
+      border-radius: 32px;
+      border: 1px solid var(--cyber-green);
+      box-shadow: 0 15px 45px rgba(0,255,157,0.2);
+      padding: 45px 40px;
+      margin-top: 40px;
+      display: none;
+      animation: glitchPop 0.3s ease;
+      position: relative;
+    }
+    .cv-panel::before {
+      content: 'CURRICULUM VITAE';
+      position: absolute;
+      top: -14px;
+      left: 40px;
+      background: #0b0e14;
+      padding: 0 20px;
+      color: var(--cyber-green);
+      font-weight: 700;
+      letter-spacing: 4px;
+      font-size: 0.9rem;
+    }
+    @keyframes glitchPop {
+      0% { opacity: 0.5; transform: translateY(-8px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .cv-row {
+      display: grid;
+      grid-template-columns: 0.9fr 2.2fr;
+      gap: 18px;
+      margin-bottom: 24px;
+      border-bottom: 1px dashed #2a3c48;
+      padding-bottom: 18px;
+    }
+    .cv-label {
+      color: var(--cyber-green);
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+    .cv-value {
+      color: #e1ecf2;
+    }
+    .cv-highlight {
+      color: white;
+      background: rgba(0,255,157,0.1);
+      padding: 20px;
+      border-radius: 18px;
+      margin-top: 25px;
+      border-left: 6px solid var(--cyber-green);
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      padding: 40px 0;
+      text-align: center;
+      color: #8ca3b2;
+      border-top: 1px solid #1f2b33;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 1000px) {
+      .hero-grid, .resume-grid, .contact-container {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        display: none;
+      }
+      .hero-title {
+        font-size: 3.3rem;
+      }
+    }
+    /* ---------- PROFILE PHOTO (fixed top-right) ---------- */
+    .profile-photo {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--cyber-green);
+      box-shadow: 0 8px 30px rgba(0,255,157,0.12);
+      z-index: 110;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.12));
+      cursor: pointer;
+    }
+    .profile-photo:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 12px 40px rgba(0,255,157,0.18);
+    }
+    @media (max-width: 800px) {
+      .profile-photo { display: none; }
+    }
+    .profile-photo.vis-hidden { display: none !important; }
+
+    /* ---------- GLOWING ANIMATION ---------- */
+    @keyframes glow-pulse {
+      0%, 100% {
+        box-shadow: 0 0 20px rgba(0, 255, 157, 0.3), 
+                    0 0 40px rgba(0, 255, 157, 0.1);
+        text-shadow: 0 0 10px rgba(0, 255, 157, 0.5);
+      }
+      50% {
+        box-shadow: 0 0 30px rgba(0, 255, 157, 0.6), 
+                    0 0 60px rgba(0, 255, 157, 0.3);
+        text-shadow: 0 0 20px rgba(0, 255, 157, 0.8);
+      }
+    }
+
+    @keyframes border-glow {
+      0%, 100% {
+        border-color: rgba(0, 255, 157, 0.3);
+        box-shadow: inset 0 0 20px rgba(0, 255, 157, 0.1), 
+                    0 0 15px rgba(0, 255, 157, 0.2);
+      }
+      50% {z
+        border-color: rgba(0, 255, 157, 0.7);
+        box-shadow: inset 0 0 30px rgba(0, 255, 157, 0.2), 
+                    0 0 30px rgba(0, 255, 157, 0.4);
+      }
+    }
+
+    /* Apply glow animation to hero title */
+    .hero-title {
+      animation: glow-pulse 3s ease-in-out infinite;
+    }
+
+    /* Apply glow animation to cards on hover */
+    .card {
+      animation: border-glow 2.5s ease-in-out infinite;
+    }
+
+    /* Apply glow to buttons */
+    .btn-primary {
+      animation: glow-pulse 2s ease-in-out infinite;
+    }
+
+    .profile-photo {
+      animation: border-glow 2s ease-in-out infinite;
+    }
+
+    /* PHOTO LIGHTBOX / MODAL ---------- */
+    .photo-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(2,6,8,0.8);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 24px;
+    }
+    .photo-modal-overlay.show { display: flex; }
+    .photo-modal-inner {
+      max-width: 92%;
+      max-height: 92%;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+      border: 4px solid rgba(0,255,157,0.06);
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.2));
+    }
+    .photo-modal-inner img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 85vh;
+      object-fit: contain;
+      background: #0b0e14;
+    }
+    .photo-modal-close {
+      position: absolute;
+      top: 22px;
+      right: 22px;
+      background: rgba(0,0,0,0.45);
+      border: 1px solid rgba(255,255,255,0.06);
+      color: white;
+      padding: 8px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 700;
+      z-index: 1010;
+    }
+  </style>
+</head>
+<body>
+  <img src="profile.jpeg" alt="Paras Beniwal" class="profile-photo" id="profilePhoto">
+
+  <!-- Photo modal / lightbox -->
+  <div id="photoModal" class="photo-modal-overlay" aria-hidden="true">
+    <div class="photo-modal-inner" role="dialog" aria-modal="true">
+      <button class="photo-modal-close" id="photoModalClose" aria-label="Close image">Close</button>
+      <img src="profile.jpeg" alt="Paras Beniwal full" id="photoModalImage">
+    </div>
+  </div>
+  <header>
+    <div class="container navbar">
+      <div class="logo">PB<span style="color:white; text-shadow:none;">.</span></div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#resume">Resume</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div style="display:flex; gap:12px;">
+        <span style="color:var(--cyber-green);"><i class="fas fa-shield-hal"></i></span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero container">
+      <div class="hero-grid">
+        <div>
+          <div class="hero-sub"><i class="fas fa-shield" style="margin-right:8px;"></i> CYBER SECURITY ANALYST</div>
+          <h1 class="hero-title">Hi, I’m <span>Paras Beniwal</span></h1>
+          <p class="hero-desc">
+            I am a Computer Science and Engineering undergraduate with a strong foundation in cybersecurity, 
+            secure web development, and problem-solving. I focus on building privacy-aware, secure, 
+            and scalable applications while continuously strengthening my defensive security skills.
+          </p>
+          <div class="hero-buttons">
+            <a href="#projects" class="btn btn-primary"><i class="fas fa-arrow-down" style="margin-right:8px;"></i> View My Work</a>
+            <a href="#contact" class="btn btn-outline">Contact Me</a>
+          </div>
+        </div>
+        <div class="hero-stats">
+          <i class="fas fa-terminal" style="color:var(--cyber-green); font-size:2.5rem; margin-bottom:20px; display:block;"></i>
+          <h3 style="font-size:1.8rem; margin-bottom:10px;">250+</h3>
+          <p style="color:#adc9db;">DSA problems solved</p>
+          <hr style="border-color:#2a3b44; margin:25px 0;">
+          <div style="display:flex; justify-content:space-between;">
+            <div><span style="color:var(--cyber-green);">4★</span> Python</div>
+            <div><span style="color:var(--cyber-green);">4★</span> C++</div>
+            <div><i class="fas fa-certificate" style="color:var(--cyber-blue);"></i> NPTEL</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section container">
+      <h2>About Me</h2>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:40px; margin-top:20px;">
+        <div class="card">
+          <div style="display:flex; gap:15px; align-items:center; margin-bottom:25px;">
+            <i class="fas fa-user-shield" style="font-size:2rem; color:var(--cyber-green);"></i>
+            <div>
+              <h3 style="font-size:1.8rem;">Education</h3>
+              <p style="color:#b3d6ff;">B.Tech Computer Science and Engineering</p>
+            </div>
+          </div>
+          <p style="font-size:1.2rem; font-weight:600;">Lovely Professional University, Punjab</p>
+          <p style="margin:15px 0 5px; color:var(--cyber-green);"><i class="fas fa-calendar-alt"></i> Since August 2023</p>
+          <p style="margin-top:25px;"><span style="color:var(--cyber-green);">SKILLS FOCUS:</span> Cyber Security, Secure Web Development</p>
+        </div>
+        <div class="card">
+          <h3 style="font-size:1.8rem; margin-bottom:15px;"><i class="fas fa-code-branch" style="color:var(--cyber-green);"></i> My Journey</h3>
+          <p style="margin-bottom:20px;">I am a passionate Computer Science student with hands-on experience in secure web technologies and cybersecurity fundamentals. My journey includes building privacy-focused applications, solving data-structures problems, and learning defensive security concepts aligned with real-world threats.</p>
+          <h3 style="font-size:1.8rem; margin:25px 0 15px;">My Approach</h3>
+          <p>I believe in writing clean, secure, and maintainable code. I prioritize secure authentication, input validation, and awareness of common vulnerabilities while continuously learning through projects and certifications.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESUME + VIEW CV -->
+    <section id="resume" class="section container">
+      <h2>My Resume</h2>
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; margin-bottom:40px;">
+        <span style="font-size:1.5rem; font-weight:700;">Paras Beniwal</span>
+        <button id="viewCvBtn" class="btn btn-primary"><i class="fas fa-file-alt" style="margin-right:10px;"></i>View CV</button>
+      </div>
+      
+      <div style="display:flex; gap:30px; flex-wrap:wrap; margin-bottom:40px;">
+        <div class="linked-badge"><i class="fab fa-linkedin" style="color:#0a66c2; font-size:1.3rem;"></i> linkedin.com/in/parasbeniwal</div>
+        <div class="linked-badge"><i class="fab fa-github" style="color:white; font-size:1.3rem;"></i> github.com/parasbeniwal</div>
+      </div>
+      
+      <!-- CV DETAIL PANEL -->
+      <div id="cvDetailPanel" class="cv-panel">
+        <div class="cv-row">
+          <span class="cv-label"><i class="fas fa-user-circle"></i> Full Name</span>
+          <span class="cv-value"><strong style="color:white;">Paras Beniwal</strong> – Cyber Security Analyst</span>
+        </div>
+        <div class="cv-row">
+          <span class="cv-label"><i class="fas fa-graduation-cap"></i> Education</span>
+          <span class="cv-value">
+            <strong>B.Tech (CSE)</strong> · Lovely Professional University, Punjab (2023–2027) <br>
+            <span style="color: #b4d6fe;">Intermediate (79%)</span> – ST Sophia Sc School, Hisar · 2021–2022 <br>
+            <span style="color: #b4d6fe;">Matriculation (88%)</span> – OP Jindal Modern School, Hisar · 2019–2020
+          </span>
+        </div>
+        <div class="cv-row">
+          <span class="cv-label"><i class="fas fa-shield-alt"></i> Core Expertise</span>
+          <span class="cv-value">
+            <span style="color: var(--cyber-green);">●</span> Cyber security, OWASP Top10, secure auth & API security <br>
+            <span style="color: var(--cyber-green);">●</span> Privacy-first development, input validation, Wireshark, Burp Suite, Nmap <br>
+            <span style="color: var(--cyber-green);">●</span> Java, Python, C++, JavaScript, MongoDB, Docker basics
+          </span>
+        </div>
+        <div class="cv-row">
+          <span class="cv-label"><i class="fas fa-briefcase"></i> Trainings</span>
+          <span class="cv-value">
+            • Java Programming (OOPS & DS) – June 2025 <br>
+            • NPTEL Cyber Security – May 2025 <br>
+            • Cipher School DSA (Java) – Oct 2023
+          </span>
+        </div>
+        <div class="cv-row">
+          <span class="cv-label"><i class="fas fa-trophy"></i> Achievements</span>
+          <span class="cv-value">
+            250+ DSA problems (LeetCode/GFG) · 4★ Python & C++ @HackerRank · Hack Verse 2024
+          </span>
+        </div>
+        <div class="cv-highlight">
+          <i class="fas fa-quote-left" style="color: var(--cyber-green); opacity:0.7;"></i> 
+          I combine secure coding practices with a hacker's curiosity. Currently deepening expertise in application security, CTF challenges, and threat modeling.
+          <i class="fas fa-quote-right" style="color: var(--cyber-green); opacity:0.7; float:right;"></i>
+        </div>
+        <p style="text-align:right; margin-top:25px; color: var(--cyber-green); font-size:0.9rem;">
+          <i class="fas fa-check-circle"></i> Updated August 2025
+        </p>
+      </div>
+
+      <!-- resume grid (unchanged) -->
+      <div class="resume-grid">
+        <div>
+          <h3 style="font-size:1.8rem; margin-bottom:20px;">Core Skills</h3>
+          <div><span class="skill-tag">HTML5</span><span class="skill-tag">CSS3</span><span class="skill-tag">JavaScript</span><span class="skill-tag">C</span><span class="skill-tag">C++</span><span class="skill-tag">Java</span><span class="skill-tag">Python</span></div>
+          <div style="margin-top:20px;"><span class="skill-tag">MySQL</span><span class="skill-tag">SQLite</span><span class="skill-tag">MongoDB</span><span class="skill-tag">Mongoose</span></div>
+          <div style="margin-top:20px;"><span class="skill-tag">Git/GitHub</span><span class="skill-tag">Docker</span><span class="skill-tag">VS Code</span></div>
+          <div style="margin-top:20px;"><span class="skill-tag">Secure Auth</span><span class="skill-tag">OWASP Top10</span><span class="skill-tag">API Security</span><span class="skill-tag">Input Validation</span></div>
+          <div style="margin-top:20px;"><span class="skill-tag">Wireshark</span><span class="skill-tag">Burp Suite</span><span class="skill-tag">Nmap</span><span class="skill-tag">Metasploit</span></div>
+          <div style="margin-top:30px;">
+            <h4 style="font-size:1.4rem; margin-bottom:10px;">Training</h4>
+            <div class="card" style="margin-top:10px;">
+              <p style="font-weight:700; font-size:1.2rem;">Java Programming – OOPS & Data Structures</p>
+              <p style="color:var(--cyber-green);">June 2025</p>
+              <p>Strengthened object-oriented design, algorithmic thinking, and problem-solving skills relevant to backend development.</p>
+              <p style="margin-top:10px;"><span style="color:#9ac7ff;">Tech stacks used:</span> Java</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h3 style="font-size:1.8rem; margin-bottom:20px;">Education</h3>
+          <div class="edu-item card">
+            <div class="edu-title">B.Tech - Computer Science</div>
+            <div class="edu-meta">Lovely Professional University, Punjab · Since Aug 2023</div>
+          </div>
+          <div class="edu-item card">
+            <div class="edu-title">Intermediate (79%)</div>
+            <div class="edu-meta">ST Sophia Sc School ,Hisar,Haryana · April 2021 – March 2022</div>
+          </div>
+          <div class="edu-item card">
+            <div class="edu-title">Matriculation (88%)</div>
+            <div class="edu-meta">OP Jindal Modern School , Hisar , Haryana · April 2019 – March 2020</div>
+          </div>
+          <div style="margin-top:30px;">
+            <h4 style="font-size:1.4rem;">Certificates</h4>
+            <ul style="list-style:none; margin-top:15px;">
+              <li style="margin-bottom:12px;"><i class="fas fa-certificate" style="color:var(--cyber-green); margin-right:12px;"></i> Cipher School – DSA Using Java (Oct 2023)</li>
+              <li style="margin-bottom:12px;"><i class="fas fa-certificate" style="color:var(--cyber-green); margin-right:12px;"></i> Hack Verse 2024 – Hackathon (Mar 2024)</li>
+              <li style="margin-bottom:12px;"><i class="fas fa-certificate" style="color:var(--cyber-green); margin-right:12px;"></i> NPTEL – Cyber Security (May 2025)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section container">
+      <h2>My Skills</h2>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:30px;">
+        <div class="card">
+          <div class="skill-category"><i class="fas fa-code"></i> Programming Languages</div>
+          <div>HTML, CSS, JavaScript, C, C++, Java, Python</div>
+          <div class="skill-category" style="margin-top:30px;"><i class="fas fa-database"></i> Databases</div>
+          <div>MySQL, SQLite, MongoDB, Mongoose</div>
+        </div>
+        <div class="card">
+          <div class="skill-category"><i class="fas fa-wrench"></i> Tools & Platforms</div>
+          <div>Git, GitHub, Docker, VS Code</div>
+          <div class="skill-category" style="margin-top:30px;"><i class="fas fa-shield"></i> Cybersecurity Knowledge</div>
+          <div>Secure Auth & Authorization, OWASP Top 10, API Security, Input Validation</div>
+        </div>
+        <div class="card">
+          <div class="skill-category"><i class="fas fa-shield-hal"></i> Cybersecurity Tools</div>
+          <div>Wireshark, Burp Suite, Nmap, Metasploit</div>
+          <div class="skill-category" style="margin-top:30px;"><i class="fas fa-users"></i> Soft Skills</div>
+          <div>Problem-Solving, Team Player, Adaptability</div>
+        </div>
+      </div>
+      <p style="text-align:right; margin-top:30px; color:#7f9eb2;"><i class="fas fa-pen"></i> Edit with Lovable</p>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section container">
+      <h2>Featured Projects</h2>
+      <div class="project-grid">
+        <div class="project-card">
+          <h3 class="project-title">Privacy-Focused AI Web Content Extractor</h3>
+          <div class="project-meta">July 2025</div>
+          <div class="project-tech">
+            <span class="tech-badge">JavaScript</span>
+            <span class="tech-badge">Chrome Extension APIs</span>
+            <span class="tech-badge">REST APIs</span>
+            <span class="tech-badge">AI Integration</span>
+          </div>
+          <ul style="margin-left:20px; list-style-type:'→ '; line-height:1.8;">
+            <li>Built a Chrome extension to extract webpage content and display AI-generated insights</li>
+            <li>Implemented event-based background scripts with minimal UI rendering</li>
+            <li>Designed a lightweight, privacy-focused architecture with non-persistent interaction</li>
+          </ul>
+        </div>
+        <div class="project-card">
+          <h3 class="project-title">Cyber-Awareness Training Game</h3>
+          <div class="project-meta">July 2025</div>
+          <div class="project-tech">
+            <span class="tech-badge">HTML5</span>
+            <span class="tech-badge">CSS3</span>
+            <span class="tech-badge">JavaScript ES6</span>
+            <span class="tech-badge">Font Awesome</span>
+            <span class="tech-badge">Local Storage</span>
+          </div>
+          <ul style="margin-left:20px; list-style-type:'→ '; line-height:1.8;">
+            <li>Developed interactive cyber-security awareness game covering phishing, malware, password security, data privacy</li>
+            <li>Designed modular mini-games using vanilla JavaScript</li>
+            <li>Implemented persistent score tracking using local storage</li>
+            <li>Built a responsive, user-friendly interface</li>
+          </ul>
+        </div>
+      </div>
+      <div style="display:flex; justify-content:space-between; flex-wrap:wrap; margin-top:50px;">
+        <div class="card" style="flex:1; margin-right:20px;">
+          <h3 style="font-size:1.8rem; margin-bottom:15px;">Certificates</h3>
+          <p><i class="fas fa-certificate" style="color:var(--cyber-green);"></i> Cipher School – DSA Using Java Programming (Oct 2023)</p>
+          <p style="margin-top:12px;"><i class="fas fa-certificate" style="color:var(--cyber-green);"></i> Hack Verse 2024 – Hackathon (Mar 2024)</p>
+          <p style="margin-top:12px;"><i class="fas fa-certificate" style="color:var(--cyber-green);"></i> NPTEL – Cyber Security (May 2025)</p>
+        </div>
+        <div class="card" style="flex:1;">
+          <h3 style="font-size:1.8rem; margin-bottom:15px;">Achievements</h3>
+          <p style="margin-bottom:12px;">⭐ Solved 250+ DSA problems on LeetCode and Geeks for Geeks</p>
+          <p>⭐ Earned 4-star ratings in Python and C++ on HackerRank</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ****** CONTACT SECTION – WORKING FORM WITH THANK YOU ****** -->
+    <section id="contact" class="section container">
+      <h2>Get In Touch</h2>
+      <div class="contact-container">
+        <div class="contact-info">
+          <div class="contact-item"><i class="fas fa-envelope"></i> beniwalp395@gmail.com</div>
+          <div class="contact-item"><i class="fas fa-phone-alt"></i> +91-9996913406</div>
+          <div class="contact-item"><i class="fab fa-linkedin"></i> linkedin/paras-beniwal-098196293</div>
+          <div class="contact-item"><i class="fab fa-github"></i> github.com/paras12beniwal</div>
+          <div style="margin-top:40px;">
+            <div style="background:#1a232b; border-radius:24px; padding:20px;">
+              <p style="font-size:1.2rem; font-weight:600; margin-bottom:5px;">PB</p>
+              <p style="color:var(--cyber-green);">“Secure code is clean code.”</p>
+            </div>
+          </div>
+        </div>
+        <!-- CONTACT FORM with THANK YOU overlay -->
+        <div class="contact-form" id="contactFormContainer">
+          <!-- Thank you overlay (hidden by default) -->
+          <div id="thankyouOverlay" class="thankyou-message">
+            <i class="fas fa-shield-hal"></i>
+            <h3>Thank you!</h3>
+            <p>Your message has been securely delivered. I'll reply within 24 hours.</p>
+            <button id="closeThankyouBtn" class="close-thankyou">Send another</button>
+          </div>
+          <!-- actual form fields -->
+          <form id="contactForm">
+            <input type="text" id="nameInput" placeholder="Your name" value="Paras Beniwal" required>
+            <input type="email" id="emailInput" placeholder="your@email.com" required>
+            <textarea id="messageInput" rows="4" placeholder="Your message..." required></textarea>
+            <button type="submit" id="submitBtn" class="btn btn-primary" style="border-radius:40px; width:100%;"><i class="fas fa-paper-plane"></i> Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p style="font-size:1.2rem; margin-bottom:20px;">© 2025 Paras Beniwal. Built with passion for security & clean code.</p>
+      <div style="margin-top:25px; display:flex; justify-content:center; gap:30px;">
+        <span><i class="fas fa-shield"></i> PB</span>
+        <span><i class="fas fa-terminal"></i> cyber:analyst</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT: toggle CV + WORKING CONTACT FORM -->
+  <script>
+    (function() {
+      // ---------- ACTIVE NAV HIGHLIGHT ----------
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.nav-links a');
+      window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop - 100;
+          if (scrollY >= sectionTop) {
+            current = section.getAttribute('id');
+          }
+        });
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${current}`) {
+            link.classList.add('active');
+          }
+        });
+      });
+
+      // ---------- VIEW CV TOGGLE ----------
+      const viewBtn = document.getElementById('viewCvBtn');
+      const cvPanel = document.getElementById('cvDetailPanel');
+      if (viewBtn && cvPanel) {
+        cvPanel.style.display = 'none';  // initially hidden
+        viewBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          if (cvPanel.style.display === 'none' || cvPanel.style.display === '') {
+            cvPanel.style.display = 'block';
+            viewBtn.innerHTML = '<i class="fas fa-times" style="margin-right:10px;"></i>Close CV';
+          } else {
+            cvPanel.style.display = 'none';
+            viewBtn.innerHTML = '<i class="fas fa-file-alt" style="margin-right:10px;"></i>View CV';
+          }
+        });
+      }
+
+      // ---------- CONTACT FORM WORKING + THANK YOU ----------
+      const contactForm = document.getElementById('contactForm');
+      const thankyouOverlay = document.getElementById('thankyouOverlay');
+      const closeBtn = document.getElementById('closeThankyouBtn');
+      const nameField = document.getElementById('nameInput');
+      const emailField = document.getElementById('emailInput');
+      const messageField = document.getElementById('messageInput');
+
+      // Hide overlay initially (visible false)
+      thankyouOverlay.classList.remove('show');
+
+      // Handle form submission
+      if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+          e.preventDefault();   // NO page reload
+
+          // simple validation: all fields must be non-empty
+          if (nameField.value.trim() === '' || emailField.value.trim() === '' || messageField.value.trim() === '') {
+            alert('Please fill in all fields.');
+            return;
+          }
+
+          // Show the "Thank you" overlay with cyber animation
+          thankyouOverlay.classList.add('show');
+          
+          // (Optional) you could reset fields here — but we keep values for demonstration
+          // nameField.value = ''; emailField.value = ''; messageField.value = ''; 
+        });
+      }
+
+      // Close overlay (Send another) -> hides overlay
+      if (closeBtn) {
+        closeBtn.addEventListener('click', function() {
+          thankyouOverlay.classList.remove('show');
+          // Also clear the form if you want – uncomment if needed
+          // nameField.value = ''; emailField.value = ''; messageField.value = ''; 
+        });
+      }
+
+      // If user clicks outside overlay? we keep it simple, only close via button.
+
+      // ---------- PROFILE PHOTO MODAL ----------
+      const profilePhoto = document.getElementById('profilePhoto');
+      const photoModal = document.getElementById('photoModal');
+      const photoModalImage = document.getElementById('photoModalImage');
+      const photoModalClose = document.getElementById('photoModalClose');
+
+      function openPhotoModal() {
+        if (!photoModal) return;
+        photoModal.classList.add('show');
+        photoModal.setAttribute('aria-hidden', 'false');
+        // prevent page scroll
+        document.documentElement.style.overflow = 'hidden';
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closePhotoModal() {
+        if (!photoModal) return;
+        photoModal.classList.remove('show');
+        photoModal.setAttribute('aria-hidden', 'true');
+        document.documentElement.style.overflow = '';
+        document.body.style.overflow = '';
+      }
+
+      if (profilePhoto) {
+        profilePhoto.style.cursor = 'zoom-in';
+        profilePhoto.addEventListener('click', function(e) {
+          // set image src to same file (keeps high-res if available)
+          if (photoModalImage) photoModalImage.src = profilePhoto.src;
+          openPhotoModal();
+        });
+      }
+
+      if (photoModalClose) {
+        photoModalClose.addEventListener('click', function() { closePhotoModal(); });
+      }
+
+      if (photoModal) {
+        // click on overlay (outside inner) closes
+        photoModal.addEventListener('click', function(e) {
+          if (e.target === photoModal) closePhotoModal();
+        });
+        // ESC key closes
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape') closePhotoModal();
+        });
+      }
+
+      // Hide profile photo when user switches browser tabs/windows
+      document.addEventListener('visibilitychange', function() {
+        try {
+          if (document.hidden) {
+            if (profilePhoto) profilePhoto.classList.add('vis-hidden');
+            // close modal if open to avoid odd focus states
+            closePhotoModal();
+          } else {
+            if (profilePhoto) profilePhoto.classList.remove('vis-hidden');
+          }
+        } catch (err) {
+          // fail silently — not critical
+          console.warn('Visibility handler error', err);
+        }
+      });
+
+      // Hide profile photo while the user is actively scrolling; show again after scrolling stops
+      (function() {
+        let scrollTimer = null;
+        const SCROLL_HIDE_TIMEOUT = 700; // ms after scroll ends to show photo again
+
+        function onScroll() {
+          try {
+            if (!profilePhoto) return;
+            // if document not visible, keep it hidden via visibility handler
+            if (document.hidden) return;
+
+            // hide immediately while scrolling
+            profilePhoto.classList.add('vis-hidden');
+
+            // clear previous timer and set a new one to show after user stops scrolling
+            if (scrollTimer) clearTimeout(scrollTimer);
+            scrollTimer = setTimeout(function() {
+              // only show if page is visible and modal not open
+              if (!document.hidden) profilePhoto.classList.remove('vis-hidden');
+            }, SCROLL_HIDE_TIMEOUT);
+          } catch (err) {
+            // ignore
+          }
+        }
+
+        // Use passive listener for better scroll performance
+        window.addEventListener('scroll', onScroll, { passive: true });
+      })();
+
+    })();
+  </script>
+</body>
+</html>
